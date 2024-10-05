@@ -1,0 +1,12 @@
+def subarray(nums):
+    sum=0
+    n=len(nums)
+    for i in range(0,n):
+        ans=[]
+        for j in range(i,n):
+            if nums[j] not in ans:
+                ans.append(nums[j])
+            sum+=len(ans)**2
+    return sum
+num=[1,2,1]
+print(subarray(num))
