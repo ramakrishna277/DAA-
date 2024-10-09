@@ -1,0 +1,8 @@
+import numpy as np
+board = np.array([[0, 1, 0], [0, 1, 0], [0, 1, 0]])
+next_board = np.zeros_like(board)
+for i in range(board.shape[0]):
+    for j in range(board.shape[1]):
+        n = np.sum(board[max(0, i-1):i+2, max(0, j-1):j+2]) - board[i, j]
+        next_board[i, j] = (n == 3) or (board[i, j] and n in [2, 3])
+print(next_board)
