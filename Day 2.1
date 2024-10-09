@@ -1,0 +1,21 @@
+N, m, n, startRow, startCol = 3, 4, 4, 1, 1
+dp = [[[0] * n for _ in range(m)] for _ in range(N+1)]
+dp[0][startRow][startCol] = 1
+directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+total_out_bound_ways = 0
+
+for steps in range(N):
+    for row in range(m):
+        for col in range(n):
+            if dp[steps][row][col]:
+                for d in directions:
+                    newRow, newCol = row + d[0], col + d[1]
+                    if newRow < 0 or newRow >= m or newCol < 0 or newCol >= n:
+                        total_out_bound_ways += dp[steps][row][col]
+                    else:
+                        dp[steps + 1][newRow][newCol] += dp[steps][row][col]
+
+print(total_out_bound_ways)
+
+
+Q11
