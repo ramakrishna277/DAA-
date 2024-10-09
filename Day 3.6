@@ -1,0 +1,24 @@
+haystack = "sadbutsad"
+needle = "sad"
+if not needle:
+    index = 0
+else:
+    n, m = len(haystack), len(needle)
+    index = -1
+    for i in range(n - m + 1):
+        if haystack[i:i + m] == needle:
+            index = i
+            break
+print(index)  
+haystack = "leetcode"
+needle = "leeto"
+if not needle:
+    index = 0
+else:
+    n, m = len(haystack), len(needle)
+    index = -1
+    for i in range(n - m + 1):
+        if haystack[i:i + m] == needle:
+            index = i
+            break
+print(index)
